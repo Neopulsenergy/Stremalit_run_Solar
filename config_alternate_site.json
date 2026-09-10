@@ -1,0 +1,79 @@
+{
+  "_readme": [
+    "Template for running this app on a DIFFERENT site.",
+    "No code changes needed -- just:",
+    "  1. Export/prepare 3 CSVs for the new site (same format as before:",
+    "     columns POINT, EASTING, NORTHING):",
+    "       - boundary_csv        : the site's property boundary vertices",
+    "       - control_room_csv    : control room footprint vertices",
+    "       - inverter_room_csv   : inverter room footprint vertices (omit if none)",
+    "  2. Update the file paths below to point at those 3 CSVs.",
+    "  3. Adjust module/table/layout/electrical values below to match the",
+    "     new project's spec sheet (module Wp, MMS rows x columns, pitch,",
+    "     inverter rating/count, target capacity or oversizing %, etc.)",
+    "  4. Run:  python main.py config_alternate_site.json",
+    "That's it -- boundary, setback, packing, roads, DXF labels, and the",
+    "plant-details legend all regenerate automatically from these inputs."
+  ],
+  "input": {
+    "boundary_csv": "PATH/TO/new_site_boundary.csv",
+    "control_room_csv": "PATH/TO/new_site_control_room.csv",
+    "inverter_room_csv": "PATH/TO/new_site_inverter_room.csv"
+  },
+  "module": {
+    "manufacturer": "Generic",
+    "model": "532Wp Thin Film",
+    "power_wp": 532,
+    "length_mm": 2300,
+    "width_mm": 1233.33,
+    "technology": "THINFILM"
+  },
+  "table": {
+    "type": "MMS-2x24",
+    "rows": 2,
+    "columns": 24,
+    "modules_per_table": 48,
+    "portrait": true,
+    "table_gap_m": 0.5
+  },
+  "layout": {
+    "boundary_setback_m": 8.0,
+    "row_angle": 0.0,
+    "row_gap_m": 1.4,
+    "minimum_row_length": 5.0,
+    "minimum_gap_m": 0.0,
+    "target_dc_capacity_mwp": null,
+    "dc_oversizing_percent": 20,
+    "tilt_angle_deg": 0
+  },
+  "electrical": {
+    "inverter_rating_kw_25c": 1000,
+    "inverter_rating_kw_50c": 910,
+    "num_inverters": 7,
+    "num_icr": 2,
+    "modules_per_string": 6
+  },
+  "service_road": {
+    "offset_from_panels_m": 2.0,
+    "road_width_m": 3.0,
+    "shoulder_m": 0.5
+  },
+  "dxf": {
+    "output_file": "/mnt/user-data/outputs/solar_layout_alternate.dxf",
+    "layers": {
+      "boundary": "BOUNDARY",
+      "setback": "SETBACK",
+      "road": "ROADS",
+      "service_road": "SERVICE_ROAD",
+      "exclusion": "EXCLUSIONS",
+      "pv_table": "PV_TABLES",
+      "module": "MODULES",
+      "string": "STRINGS",
+      "combiner": "COMBINERS",
+      "inverter": "INVERTERS",
+      "transformer": "TRANSFORMERS",
+      "cable": "CABLES",
+      "text": "TEXT"
+    }
+  }
+}

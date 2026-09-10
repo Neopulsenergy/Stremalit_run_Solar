@@ -1,0 +1,78 @@
+{
+  "input": {
+    "boundary_csv": "coordinates.csv",
+    "control_room_csv": "control_room_coordinates.csv",
+    "inverter_room_csv": "inverter_room_coordinates.csv",
+    "private_area_csvs": []
+  },
+  "module": {
+    "manufacturer": "Generic",
+    "model": "532Wp Thin Film",
+    "power_wp": 532,
+    "length_mm": 2300,
+    "width_mm": 1233.33,
+    "technology": "THINFILM"
+  },
+  "table": {
+    "type": "MMS-2x24",
+    "rows": 2,
+    "columns": 24,
+    "modules_per_table": 48,
+    "portrait": true,
+    "table_gap_m": 0.5
+  },
+  "layout": {
+    "boundary_setback_m": 8.0,
+    "row_angle": 0.0,
+    "row_gap_m": 1.4,
+    "minimum_row_length": 5.0,
+    "minimum_gap_m": 0.0,
+    "target_ac_mw": 7.0,
+    "target_dc_capacity_mwp": null,
+    "dc_oversizing_percent": null,
+    "tilt_angle_deg": 0,
+    "scb_block_placement": true,
+    "arrester_radius_m": 107.0
+  },
+  "electrical": {
+    "inverter_rating_kw_25c": 1000,
+    "inverter_rating_kw_50c": 910,
+    "num_inverters": null,
+    "num_icr": 2,
+    "modules_per_string": 6,
+    "approved_string_size": 6,
+    "dc_ac_ratio": 1.2,
+    "inverter_architecture": "centralized_inverter",
+    "strings_per_scb": 96,
+    "scb_block_columns": 2,
+    "total_modules": 15789,
+    "scb_block_rows": 6
+  },
+  "_note_roads": "The perimeter service road always occupies the boundary_setback_m corridor above -- no separate road width needed.",
+  "oda_file_converter_path": "C:\\Program Files\\ODA\\ODAFileConverter 27.1.0\\ODAFileConverter.exe",
+  "service_road": {
+    "_note": "Internal maintenance road hugging the panel array itself (separate from the perimeter/property road above).",
+    "offset_from_panels_m": 2.0,
+    "road_width_m": 3.0,
+    "shoulder_m": 0.5
+  },
+  "dxf": {
+    "output_file": "/mnt/user-data/outputs/solar_layout.dxf",
+    "require_dwg": true,
+    "layers": {
+      "boundary": "BOUNDARY",
+      "setback": "SETBACK",
+      "road": "ROADS",
+      "service_road": "SERVICE_ROAD",
+      "exclusion": "EXCLUSIONS",
+      "pv_table": "PV_TABLES",
+      "module": "MODULES",
+      "string": "STRINGS",
+      "combiner": "COMBINERS",
+      "inverter": "INVERTERS",
+      "transformer": "TRANSFORMERS",
+      "cable": "CABLES",
+      "text": "TEXT"
+    }
+  }
+}

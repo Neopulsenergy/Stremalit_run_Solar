@@ -1,0 +1,15 @@
+streamlit
+shapely
+ezdxf
+matplotlib
+
+# Optional, for genuine .dwg export (not a pip package -- separate install):
+# DWG is Autodesk's closed, proprietary binary format. No Python library,
+# including ezdxf, can write it directly. To get real .dwg files (not just
+# renamed .dxf), install the free ODA File Converter on this machine:
+#   https://www.opendesign.com/guestfiles/oda_file_converter
+# Once installed, core/dwg_export.py detects it automatically and produces
+# a .dwg alongside every .dxf. Without it, the app still works normally --
+# it just produces .dxf only, which opens and edits identically to .dwg in
+# AutoCAD (File > Save As > DWG there for a one-click manual conversion).
+
